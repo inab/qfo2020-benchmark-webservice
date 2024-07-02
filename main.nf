@@ -249,7 +249,7 @@ process go_benchmark {
     label "darwin"
 
     input:
-    set val(benchmark), db  from c_go.filter({ it != null }).combine(db_go_test)
+    set val(benchmark), path(db)  from c_go.filter({ it != null }).combine(db_go_test)
     val method_name
     file refset_dir
     val go_evidences
@@ -271,7 +271,7 @@ process ec_benchmark {
     label "darwin"
 
     input:
-    set val(benchmark), db  from c_ec.filter({ it != null }).combine(db_ec_test)
+    set val(benchmark), path(db)  from c_ec.filter({ it != null }).combine(db_ec_test)
     val method_name
     file refset_dir
     val community_id
@@ -291,7 +291,7 @@ process swissprot_benchmark {
     label "py"
 
     input:
-    set val(benchmark), db  from c_sw.filter({ it != null }).combine(db_sw)
+    set val(benchmark), path(db)  from c_sw.filter({ it != null }).combine(db_sw)
     val method_name
     file refset_dir
     val community_id
@@ -352,7 +352,7 @@ process speciestree_benchmark {
     tag "$clade"
 
     input:
-    set val(clade), db  from c_std.filter({ it != null }).combine(db_std)
+    set val(clade), path(db)  from c_std.filter({ it != null }).combine(db_std)
     val method_name
     file refset_dir
     val community_id
@@ -375,7 +375,7 @@ process g_speciestree_benchmark {
     tag "$clade"
 
     input:
-    set val(clade), db  from c_g_std.filter({ it != null }).combine(db_g_std)
+    set val(clade), path(db)  from c_g_std.filter({ it != null }).combine(db_g_std)
     val method_name
     file refset_dir
     val community_id
@@ -396,7 +396,7 @@ process g_speciestree_benchmark_variant2 {
     tag "$clade"
 
     input:
-    set val(clade), db  from c_g_std_v2.filter({ it != null }).combine(db_g_std_v2)
+    set val(clade), path(db)  from c_g_std_v2.filter({ it != null }).combine(db_g_std_v2)
     val method_name
     file refset_dir
     val community_id
@@ -418,7 +418,7 @@ process reference_genetrees_benchmark {
     tag "$testset"
 
     input:
-    set val(testset), db   from c_geneTrees.filter({ it != null }).combine(db_geneTrees)
+    set val(testset), path(db)   from c_geneTrees.filter({ it != null }).combine(db_geneTrees)
     val method_name
     file refset_dir
     val community_id
